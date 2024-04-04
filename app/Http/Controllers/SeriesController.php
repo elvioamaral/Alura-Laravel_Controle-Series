@@ -28,10 +28,10 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(SeriesFormRequest $request, SeriesRepository $repository): RedirectResponse
+    public function store(SeriesFormRequest $request)
     {
 
-        $serie = $repository->add($request);
+        $serie = $this->repository->add($request);
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$serie->nome}' adicionada com sucesso!");
