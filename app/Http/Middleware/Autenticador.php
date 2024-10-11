@@ -21,6 +21,7 @@ class Autenticador
         if (!Auth::check()){
             throw new AuthenticationException();
         }
+
         return $next($request);
     }
 }
